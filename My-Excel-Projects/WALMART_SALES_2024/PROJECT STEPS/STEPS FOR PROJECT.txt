@@ -1,0 +1,159 @@
+Step 1:Loading and Preparing Data
+
+Step 2:Data Cleaning in Excel
+Handling Null Values:
+Use Conditional Formatting to highlight null values.
+
+Replace null values:
+For numerical columns (Profit ($) or Sales ($)), use the column's average/median.
+For categorical columns (Region or State), use the mode or "Unknown."
+
+Removing Duplicates:
+Go to the Data tab → Click Remove Duplicates → Select all columns to identify duplicates.
+Standardizing Data:
+Ensure consistent formatting (e.g., capitalization for State or Region).
+
+step 3:data visualization
+
+Creating visualizations in Excel using PivotTables is a powerful way to analyze and present your data. Below are step-by-step instructions for creating each of the five visualizations you mentioned using PivotTables and PivotCharts.
+
+1. Sales by Region (Bar Chart)
+
+Step 1: Create a PivotTable
+
+Select your data range.
+Go to the Insert tab and click on PivotTable.
+Choose where you want the PivotTable to be placed (new worksheet or existing worksheet).
+Step 2: Set Up the PivotTable
+
+Drag the Region field to the Rows area.
+Drag the Sales field to the Values area (ensure it is set to sum).
+Step 3: Create the Bar Chart
+
+Click anywhere in the PivotTable.
+Go to the Insert tab, click on Bar Chart, and select the desired bar chart style.
+2. Top 5 Products by Sales (Column Chart)
+
+Step 1: Create a PivotTable
+
+Follow the same steps as above to create a new PivotTable.
+Step 2: Set Up the PivotTable
+
+Drag the Product field to the Rows area.
+Drag the Sales field to the Values area.
+Step 3: Filter for Top 5 Products
+
+Click on the dropdown arrow in the Row Labels of the PivotTable.
+Select Value Filters → Top 10..., and set it to show the top 5 items by sum of sales.
+Step 4: Create the Column Chart
+
+Click anywhere in the PivotTable.
+Go to the Insert tab, click on Column Chart, and select the desired column chart style.
+3. Profit vs. Discount (Scatter Plot)
+
+Step 1: Create a PivotTable
+
+Create a new PivotTable as before.
+Step 2: Set Up the PivotTable
+
+Drag the Discount field to the Rows area.
+Drag the Profit field to the Values area.
+Step 3: Create the Scatter Plot
+
+Click anywhere in the PivotTable.
+Go to the Insert tab, click on Scatter, and select the desired scatter plot style.
+You may need to adjust the data range for the scatter plot to ensure it uses the correct fields.
+4. Customer Purchase Frequency (Pie Chart)
+
+Step 1: Create a PivotTable
+
+Create a new PivotTable.
+Step 2: Set Up the PivotTable
+
+Drag the Customer ID (or equivalent) field to the Rows area.
+Drag the Purchase Count (or equivalent) field to the Values area (ensure it is set to count).
+Step 3: Create the Pie Chart
+
+Click anywhere in the PivotTable.
+Go to the Insert tab, click on Pie Chart, and select the desired pie chart style.
+
+5. Order Status Breakdown (Stacked Column Chart)
+
+Step 1: Create a PivotTable
+
+Create a new PivotTable.
+Step 2: Set Up the PivotTable
+
+Drag the Region field to the Rows area.
+Drag the Order Status field to the Columns area.
+Drag the Order ID (or equivalent) field to the Values area (ensure it is set to count).
+Step 3: Create the Stacked Column Chart
+
+Click anywhere in the PivotTable.
+Go to the Insert tab, click on Column Chart, and select Stacked Column Chart.
+
+6. Sales and Profit by Product Category
+This visualization will help you understand which product categories are contributing the most to sales and profit.
+
+Create a Pivot Table:
+Insert a Pivot Table from the dataset.
+In the PivotTable Field List:
+
+Drag Category to the Rows area (this will list all product categories).
+Drag Sales ($) and Profit ($) to the Values area.
+Ensure both fields are set to Sum in the aggregation settings.
+
+Insert a Clustered Column Chart:
+Select the entire Pivot Table.
+Go to the Insert tab → Column Chart → Clustered Column.
+This will show side-by-side bars for Sales and Profit by product category.
+
+Customize the Chart:
+Add a title like "Sales and Profit by Product Category."
+Use a data label to display exact sales and profit values.
+Add a legend to distinguish between sales and profit bars.
+
+
+Final Adjustments:
+After creating this each chart, we can customize the design, colors, and labels by using the Chart Tools that appear when we select the chart.
+Make sure we have to add titles and legends to make your visualizations clear and informative or if not necessary remove it.
+By following these steps, we can effectively create the desired visualizations in Excel using PivotTables and PivotCharts.
+
+After placing all bars:
+create a menu bar for slider :(a)Category (b)Region (c)Order status
+slices we will use for the navigation purpose than we will right click and create connection of these of three slicers with all charts so that whenever we navigate on particular category, region, or order status the dashboard changes and give us that particular part of data.
+
+steps for adding slicer :
+Step 1: Add Slicers to Your Dashboard
+Choose Key Filters for Slicers: For your Walmart Sales dashboard, create slicers for these fields:
+Region: To filter by different regions (e.g., Northeast, Midwest, South, West).
+Order Status: To filter between "Returned" and "Not Returned."
+Category: To filter by product categories (e.g., Smartphones, Dairy Products, Apparel).
+Insert a Slicer:
+Select any visualization or Pivot Table in your dashboard.
+Go to the PivotTable Analyze tab (or Analyze) → Click Insert Slicer.
+In the dialog box, choose the fields you want for slicers (e.g., Region, Order Status, and Category).
+Format and Position Slicers:
+Place the slicers in a visible, organized location (e.g., a navigation bar above or beside the visualizations).
+Resize the slicers to fit your dashboard layout.
+Apply a consistent slicer style for a clean design.
+Step 2: Connect Slicers to All Relevant Pivot Tables
+By default, slicers only filter the Pivot Table they were created from. To make slicers control all relevant Pivot Tables and visualizations:
+
+Connect the Slicers:
+Right-click a slicer and choose Report Connections (or Pivot Table Connections in older Excel versions).
+In the dialog box, check all the Pivot Tables that need to be controlled by the slicer.
+Repeat for All Slicers:
+Ensure the slicers for Region, Order Status, and Category are linked to all relevant Pivot Tables used for your six visualizations.
+Step 3: Test the Slicers
+Click on different options in the slicers (e.g., select "South" for Region or "Smartphone" for Category) to ensure that all visualizations dynamically update.
+Example Use of Slicers with Visualizations:
+Slicer 1: Region:
+Use it to analyze sales, profit, and customer behavior in a specific region.
+Slicer 2: Order Status:
+Use it to compare returned vs. non-returned orders across regions or categories.
+Slicer 3: Category:
+Use it to focus on specific product categories to identify high-performing items.
+
+Then add company logo  and at end the title at top.
+

@@ -1,0 +1,15 @@
+Border Color #B00E0E
+
+Background Color:#000000
+
+Title Color:#000000
+
+Menu Color:#C70707
+
+Font Color: #ffffff
+
+Tree Map Color:Dark Red - #8B0000,Firebrick - #B22222,Crimson - #DC143C,Indian Red - #CD5C5C,Light Coral - #F08080,Salmon - #FA8072,
+DarkSalmon - #E9967A,Light Salmon - #FFA07A,Misty Rose - #FFE4E1,Lavender Blush - #FFF0F5,Seashell - #FFF5EE,Snow - #FFFAFA,Light Pink - #FFB6C1,Hot Pink - #FF69B4,Deep Pink - #FF1493
+
+
+u can use the color u want but make sure it matches the theme or company theme and logo.

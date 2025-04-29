@@ -1,0 +1,215 @@
+First get the data by selecting the excel file
+Then before loading data we will transform it into clean data 
+
+Data Cleaning required in Project there are three steps:
+(A)Fix Data Types:
+
+Change Join_Date and Churn_Date to the Date type.
+Change Monthly_Charge and Watching_Hours_Per_Week to Decimal Number.
+Change Customer_Satisfaction to Whole Number.
+
+(B)Handling Missing Values in Power Query
+Open Power Query Editor:
+
+In Power BI Desktop, click on the "Transform Data" button to open the Power Query Editor.
+Replace Missing Values:
+
+For each column where you want to handle missing values, follow these steps:
+A. Replace Nulls in the Age Column with the Average Age
+Calculate the Average Age:
+
+In the Power Query Editor, go to the "Home" tab.
+Click on "Transform" and then "Statistics."
+Select "Average" while the Age column is selected. This will create a new step in the "Applied Steps" pane that calculates the average age.
+Replace Nulls:
+
+Select the Age column.
+Right-click on the column header and choose "Replace Values."
+In the dialog that appears:
+Set "Value to Find" as null.
+Set "Replace With" as the average age you calculated (you can copy the average value from the previous step).
+Click "OK."
+B. Replace Nulls in the WatchingHoursPerWeek Column with the Median
+Calculate the Median:
+
+Select the WatchingHoursPerWeek column.
+Go to the "Transform" tab, click on "Statistics," and select "Median." This will create a new step that calculates the median.
+Replace Nulls:
+
+Select the WatchingHoursPerWeek column.
+Right-click on the column header and choose "Replace Values."
+In the dialog:
+Set "Value to Find" as null.
+Set "Replace With" as the median value you calculated.
+Click "OK."
+C. Replace Nulls in the CustomerSatisfaction Column with the Mode
+Calculate the Mode:
+
+Unfortunately, Power Query does not have a built-in function for mode. However, you can find the mode manually:
+Go to the "Home" tab, click on "Advanced Editor," and add a step to group by CustomerSatisfaction and count occurrences.
+Use the following M code to create a new table that counts occurrences:
+ModeTable = Table.Group(YourTable, {"CustomerSatisfaction"}, {{"Count", each Table.RowCount(_), Int64.Type}})
+Sort this new table by Count in descending order to find the mode.
+Replace Nulls:
+
+Once you have the mode value, select the CustomerSatisfaction column.
+Right-click on the column header and choose "Replace Values."
+In the dialog:
+Set "Value to Find" as null.
+Set "Replace With" as the mode value you calculated.
+Click "OK."
+D. Replace Nulls in the DeviceType Column with "Unknown"
+Replace Nulls:
+Select the DeviceType column.
+Right-click on the column header and choose "Replace Values."
+In the dialog:
+Set "Value to Find" as null.
+Set "Replace With" as "Unknown".
+Click "OK."
+Final Steps
+Review Changes:
+
+After replacing the null values, review the changes in the "Applied Steps" pane to ensure everything looks correct.
+Close and Apply:
+
+Once you are satisfied with the changes, click on "Close & Apply" in the Home tab to load the cleaned data back into Power BI.
+
+
+
+Churn Overview Dashboard:
+now we will do visualization part in power bi :
+
+(1)Total Churned Customers:
+Description: Display the total number of churned customers (which is essentially the count of all records in your dataset).
+How to Create:
+In the "Visualizations" pane, select the Card visual.
+Drag the CustomerID field into the "Values" area. This will count the total number of churned customers.
+
+(2)Average Monthly Charge:
+Description: Show the average monthly charge of churned customers.
+How to Create:
+In the "Visualizations" pane, select the Card visual.
+Drag the MonthlyCharge field into the "Values" area. Power BI will automatically calculate the average.
+
+(3)Average Customer Rating:
+Description: Display the average customer satisfaction score of churned customers.
+How to Create:
+In the "Visualizations" pane, select the Card visual.
+Drag the CustomerSatisfaction field into the "Values" area. Power BI will automatically calculate the average.
+
+(4) slicer
+In the "Visualizations" pane, select the slicer visual.
+Drag the JoinDate field into the "Axis" area.
+Drag the CustomerID field into the "Values" area. This will count the number of customers.
+
+(5) slicer
+In the "Visualizations" pane, select the slicer visual.
+Drag the Age field into the "Axis" area.
+Drag the CustomerID field into the "Values" area. This will count the number of customers.
+
+
+(6) Donut Chart
+In the "Visualizations" pane, select the Donut Chart visual.
+Drag the ChurnedTo field into the "Values" area. This will count the number of customers who churned to each competitor.
+Optionally, you can drag the ChurnedTo field into the "Legend" area to label the segments.
+Customer Segmentation Analysis
+
+(7) Stacked Bar Chart
+In the "Visualizations" pane, select the Stacked Bar Chart visual.
+Drag the SubscriptionPlan field into the "Axis" area.
+Drag the CustomerID field into the "Values" area. This will count the number of customers.
+To differentiate between churned and active customers, use the "Legend" area:
+If you have a column that indicates whether a customer is churned or active, drag that column into the "Legend" area.
+
+(8) Clustered Column Chart
+In the "Visualizations" pane, select the Clustered Column Chart visual.
+Create age groups if you haven't already. You can do this in Power Query by creating a new column for age groups (e.g., 18–25, 26–35, etc.).
+Drag the new age group column into the "Axis" area.
+Drag the CustomerID field into the "Values" area. This will count the number of customers.
+Use the "Legend" area to differentiate between churned and retained customers.
+
+(9) Tree Map
+In the "Visualizations" pane, select the Tree Map visual.
+Drag the Country field into the "Group" area.
+Drag the CustomerID field into the "Values" area. This will count the number of customers by country.
+Behavioral Analysis
+
+(10) Scatter Plot
+In the "Visualizations" pane, select the Scatter Chart visual.
+Drag the WatchingHoursPerWeek field into the "X-Axis" area.
+Drag the CustomerSatisfaction field into the "Y-Axis" area.
+Optionally, you can use the "Details" area to add CustomerID to see individual data points.
+
+(11) Map
+In the "Visualizations" pane, select the Matrix visual.
+Drag the Country field into the location area.
+Drag the WatchingHoursPerWeek field into the legend area.
+
+Now we have completed makling the dashboard also add some logos in title in side menu bar with slicers made
+Also with title logo give the title on top of dashboard "Netflix Churn Analysis Dashboard 2024"
+
+Shortcomings Identified:
+
+Engagement:
+Low engagement (low viewing hours) correlates with higher churn.
+
+Customer Support and Satisfaction:
+Low satisfaction ratings indicate possible issues with support, platform usability, or perceived value.
+
+low advertising:
+Low advertuising in many countries which effect in decreasing of watching hours per week in many countries.
+
+analyzing competitor:
+Analysing amazon prime videos data what plus points they have and working on that.
+
+Content Gap:
+Customers switching to competitors indicates dissatisfaction with Netflix's exclusive or trending content.
+
+
+
+
+Action Plan for 2024 and 2025
+1. Content Strategy
+Action: Invest in diverse and high-quality content, including regional hits, trending genres, and blockbuster movies.
+Execution: Collaborate with local creators and acquire exclusive rights for in-demand shows and movies.
+Impact: Retain customers drawn to competitors' exclusive content.
+2. Pricing and Bundling
+Action: Introduce more flexible plans, promotional offers, and bundles (e.g., family or regional discounts).
+Execution: Provide annual plans at discounted rates or partner with ISPs for bundled offers.
+Impact: Reduce churn among price-sensitive customers.
+3. Enhance Engagement
+Action: Use personalized recommendations and notifications to increase viewing hours.
+Execution: Leverage AI algorithms to suggest content based on past behavior and trends.
+Impact: Boost engagement and customer satisfaction.
+4. Regional Customization
+Action: Cater to regional preferences by offering language-specific content and promotions tailored to local markets.
+Execution: Monitor regional trends and competitors to align strategies.
+Impact: Reduce churn in high-risk regions.
+5. Customer Retention Programs
+Action: Launch loyalty programs offering rewards like free months or exclusive access.
+Execution: Reward long-term customers or those upgrading plans.
+Impact: Increase retention among loyal customers.
+6. Device Experience Improvement
+Action: Improve the viewing experience across all devices, especially mobile.
+Execution: Enhance app performance and introduce features like offline downloads or adaptive streaming.
+Impact: Retain customers on mobile and lower-tier plans.
+7. Proactive Churn Prevention
+Action: Monitor early churn indicators (e.g., declining viewing hours) and intervene with personalized offers.
+Execution: Send targeted emails or in-app messages to at-risk customers.
+Impact: Reduce churn by re-engaging users.
+8. Improve Customer Support
+Action: Offer faster and more effective customer support, including live chat and issue resolution.
+Execution: Increase customer support availability during peak times or after major updates.
+Impact: Improve satisfaction ratings and reduce churn.
+
+
+
+
+Expected Outcome in coming years:
+By addressing content gaps, improving engagement, and targeting high-risk customers with tailored strategies, Netflix can:
+
+Reduce churn by 15–20% in 2024 and 2025.
+Increase customer satisfaction and loyalty.
+Strengthen its competitive edge in the OTT market.
+
+

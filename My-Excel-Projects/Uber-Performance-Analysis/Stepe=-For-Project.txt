@@ -1,0 +1,46 @@
+Suggested Data Cleaning Steps
+Remove duplicates Identify and remove duplicate rows based on Ride_ID.
+Handle null values Impute or remove null values in columns like Customer_Rating, Driver_Rating, and Fare.
+Correct invalid data types Ensure all numeric columns (e.g., Distance, Fare, Profit) have valid numeric values.
+Filter invalid records Remove rows with invalid Wait_Time (e.g., negative values).
+Validate locations Check for invalid or missing Pickup_Location and Drop_Location entries.
+Handle outliers Identify and treat outliers in Distance, Fare, and Profit.
+Normalize categorical values Ensure consistency in fields like Ride_Type and Payment_Method.
+Derive missing Profit values Calculate any missing Profit using Fare, driver fees, and promo codes.
+Visualization Plan
+Page 1 Revenue and Profit Analysis
+
+Bar chart Top 10 cities by total revenue.
+Line chart Monthly revenue trends.
+Pie chart Revenue contribution by ride type.
+Scatter plot Profit vs. Distance.
+Page 2 Customer and Driver Insights
+
+Bar chart Top 5 customers by number of rides.
+Bar chart Top 5 drivers by number of rides accepted.
+Box plot Distribution of customer ratings.
+Heatmap Driver ratings by ride type.
+Page 3 Cancellation Analysis
+
+Pie chart Proportion of rides canceled by reason.
+Bar chart Cancellations by ride type.
+Line chart Hourly cancellation trends.
+Page 4 Surge Pricing Impact
+
+Histogram Surge pricing multiplier distribution.
+Scatter plot Revenue vs. surge multiplier.
+Bar chart Cities with highest surge pricing.
+Final Report
+Shortcomings Identified in 2024
+
+High cancellations in specific cities or at certain times.
+Underperforming drivers with low ratings or high cancellations.
+Unprofitable rides due to excessive promo discounts or long wait times.
+Limited customer engagement or loyalty programs.
+Actions for 2025
+
+Implement loyalty programs for frequent customers.
+Offer incentives for highly rated drivers or top-performing cities.
+Optimize ride allocation to reduce wait times.
+Monitor and limit promo code misuse to protect revenue.
+Introduce dynamic pricing models to better balance demand and supply.
